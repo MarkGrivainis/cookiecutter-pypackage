@@ -54,6 +54,7 @@ repository='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutte
 
 [project.optional-dependencies]
 dev = [
+    "build==1.0.3",
     "bump-my-version==0.16.2",
     "watchdog==3.0.0",
     "nox==2023.4.22",
