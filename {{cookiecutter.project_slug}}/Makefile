@@ -48,18 +48,18 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint/ruff: ## check style with ruff
-	ruff check src/algorithms tests
+	ruff check src/{{ cookiecutter.project_slug }} tests
 
 lint/mypy: ## check style with mypy
-	mypy src/algorithms
+	mypy src/{{ cookiecutter.project_slug }}
 
 lint/bandit: ## check style with bandit
-	bandit -c pyproject.toml -r src/algorithms
+	bandit -c pyproject.toml -r src/{{ cookiecutter.project_slug }}
 
 lint: lint/ruff lint/mypy lint/bandit ## check style
 
 format/ruff: ## check style with ruff
-	ruff format src/algorithms tests
+	ruff format src/{{ cookiecutter.project_slug }} tests
 
 format: format/ruff ## fix style
 
@@ -78,7 +78,7 @@ coverage: ## check code coverage quickly with the default Python
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/{{ cookiecutter.project_slug }}.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ {{ cookiecutter.project_slug }}
+	sphinx-apidoc -o docs/ src/{{ cookiecutter.project_slug }}
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(MAKE) -C docs doctest
