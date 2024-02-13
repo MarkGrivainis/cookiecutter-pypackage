@@ -87,6 +87,7 @@ def test(session: nox.Session) -> None:
     Usage:
     $ nox -s tests
     """
+    session.install(".")
     session.install("pytest")
     session.run("pytest")
 
