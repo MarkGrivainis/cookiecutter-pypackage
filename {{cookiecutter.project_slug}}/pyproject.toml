@@ -94,7 +94,32 @@ tag = true
 filename = "src/{{ cookiecutter.project_slug }}/__init__.py"
 
 [tool.ruff]
-exclude = ["docs"]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "docs",
+    "node_modules",
+    "venv",
+    "./epay/tests",
+    ".pyenv",
+]
 
 [tool.ruff.lint]
 extend-select = [
